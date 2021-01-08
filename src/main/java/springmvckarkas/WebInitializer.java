@@ -12,9 +12,10 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
 // Этот файл аналог web.xml
-
-public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 // Первый способ задать контекст сервлета
+/*
+public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
     protected Filter[] getServletFilter() {
         CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
         characterEncodingFilter.setEncoding("UTF-8");
@@ -34,10 +35,11 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
         return new String[]{"/"};
     }
 }
+*/
 
-/*
-public class WebInitializer implements WebApplicationInitializer {
 // Второй способ задать контекст сервлета
+public class WebInitializer implements WebApplicationInitializer {
+
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(Config.class);
@@ -47,5 +49,5 @@ public class WebInitializer implements WebApplicationInitializer {
         servlet.addMapping("/");
     }
 }
-*/
+
 

@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @RestController
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class ApplicantController {
-    private Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = LoggerFactory.getLogger(getClass());
     private static final String REST_URL = "applicant";
 
     @Autowired
@@ -24,7 +24,7 @@ public class ApplicantController {
 
     @GetMapping(REST_URL + "/{id}")
     public Applicant get(@PathVariable BigDecimal id){
-        log.info("Applicant get");
+        log.info("Applicant get applicant");
         return service.get(id);
     }
 
